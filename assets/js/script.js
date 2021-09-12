@@ -6,16 +6,27 @@ var TaskFormHandler = function(event) {
 
   event.preventDefault();
 
+  // Collect and package data from form
   var taskNameInput = document.querySelector("input[name='task-name']").value;
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+// Validate inputs
+if (!taskNameInput || !taskTypeInput) {
+  alert("Please fill out the task form before adding a task.");
+  return false;
+}
 
   var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput
   }
 
+  // Create task HTML
   createTaskEl(taskDataObj);
+
+  formEl.reset();
 }
+
 
 var createTaskEl = function(taskDataObj) {
   // Create list item

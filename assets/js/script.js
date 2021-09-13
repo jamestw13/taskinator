@@ -87,7 +87,19 @@ var createTaskEl = function(taskDataObj) {
 
   listItemEl.appendChild(taskInfoEl); // add info to list item
   listItemEl.appendChild(taskActionsEl); // add controls to list item
-  tasksToDoEl.appendChild(listItemEl); // add list item to to do column
+  // tasksToDoEl.appendChild(listItemEl); // add list item to to do column
+
+  if (taskDataObj.status === "to do") {
+    tasksToDoEl.appendChild(listItemEl);
+  }
+
+  else if (taskDataObj.status === "in progress") {
+    tasksInProgressEl.appendChild(listItemEl);
+  }
+
+  else if (taskDataObj.status === "completed") {
+    tasksCompletedEl.appendChild(listItemEl);
+  }
 
   taskDataObj.id = taskIdCounter;
   tasks.push(taskDataObj);

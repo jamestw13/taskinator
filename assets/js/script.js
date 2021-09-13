@@ -92,14 +92,17 @@ var createTaskEl = function(taskDataObj) {
   // tasksToDoEl.appendChild(listItemEl); // add list item to to do column
 
   if (taskDataObj.status === "to do") {
+    taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
     tasksToDoEl.appendChild(listItemEl);
   }
 
   else if (taskDataObj.status === "in progress") {
+    taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
     tasksInProgressEl.appendChild(listItemEl);
   }
 
   else if (taskDataObj.status === "completed") {
+    taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 2;
     tasksCompletedEl.appendChild(listItemEl);
   }
 
